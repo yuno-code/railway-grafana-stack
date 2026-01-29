@@ -14,7 +14,7 @@ common:
 
 schema_config:
   configs:
-  - from: 2020-01-01  # Set this way in the past so it covers all data
+  - from: 2020-01-01
     index:
       period: 24h
       prefix: index_
@@ -24,15 +24,14 @@ schema_config:
 
 storage_config:
   filesystem:
-    directory: /loki/chunks  # Explicit path for chunk storage
+    directory: /loki/chunks
   tsdb_shipper:
     active_index_directory: /loki/tsdb-index
     cache_location: /loki/tsdb-cache
-    shared_store: filesystem
 
 limits_config:
-  retention_period: 744h  # 31 days retention
-  max_query_lookback: 744h  # Allow querying back 31 days
-  max_query_length: 745h  # Allow queries spanning up to 31 days
-  ingestion_rate_mb: 10  # 10MB/s per tenant
-  ingestion_burst_size_mb: 20  # 20MB burst
+  retention_period: 744h
+  max_query_lookback: 744h
+  max_query_length: 745h
+  ingestion_rate_mb: 10
+  ingestion_burst_size_mb: 20
